@@ -20,6 +20,9 @@ import { RegistroModule } from './modules/registro/registro.module.js';
       // entities: [],
       // synchronize: true,
       autoLoadEntities: true,
+            // timezone: 'America/Guayaquil',
+              // timezone: 'Z', // UTC
+  // o '-05:00' para Ecuador
     }),
     DatabaseModule,
     ProvinciaModule,

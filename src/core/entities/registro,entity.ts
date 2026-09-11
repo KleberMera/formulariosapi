@@ -76,11 +76,26 @@ export class Registro {
   })
   eventoId: number;
 
+  // @Column({
+  //   name: 'fecha',
+  //   type: 'timestamp',
+  //   default: () => 'CURRENT_TIMESTAMP',
+  //   nullable: false,
+  // })
+  // fecha: Date;
+
   @Column({
-    name: 'fecha',
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
-    nullable: false,
+    transformer: {
+      to: (value: Date) => value, // se guarda tal cual
+      from: (value: Date) => {
+        // ajustar manualmente la zona horaria al leer
+        return new Date(
+          value.toLocaleString('en-US', { timeZone: 'America/Guayaquil' }),
+        );
+      },
+    },
   })
   fecha: Date;
 
