@@ -1,0 +1,12 @@
+import { Module } from '@nestjs/common';
+import { RegistroController } from './registro.controller.js';
+import { RegistroService } from './registro.service.js';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Registro } from '../../core/entities/registro,entity.js';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Registro])],
+  controllers: [RegistroController],
+  providers: [RegistroService],
+})
+export class RegistroModule {}

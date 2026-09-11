@@ -17,7 +17,7 @@ import { BarrioModule } from './modules/barrio/barrio.module.js';
       password: 'Server2026%lalibertad..',
       database: 'formularios',
       // entities: [],
-      // synchronize: true,
+      synchronize: true,
       autoLoadEntities: true,
     }),
     DatabaseModule,
