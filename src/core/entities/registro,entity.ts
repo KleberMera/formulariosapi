@@ -12,14 +12,14 @@ export class Registro {
     length: 10,
     nullable: true,
   })
-  cedula: string | null;
+  cedula: string;
 
   @Column({
     name: 'telefono',
     length: 10,
     nullable: true,
   })
-  telefono: string | null;
+  telefono: string;
 
   @Column({
     name: 'nombres',
@@ -39,19 +39,19 @@ export class Registro {
     name: 'provincia_id',
     nullable: true,
   })
-  provinciaId: number | null;
+  provinciaId: number;
 
   @Column({
     name: 'canton_id',
     nullable: true,
   })
-  cantonId: number | null;
+  cantonId: number;
 
   @Column({
     name: 'barrio_id',
     nullable: true,
   })
-  barrioId: number | null;
+  barrioId: number;
 
   @Column({
     name: 'registrador_id',
@@ -78,14 +78,14 @@ export class Registro {
     type: 'decimal',
     nullable: true, // opcional
   })
-  latitud: number | null;
+  latitud: number;
 
   @Column({
     name: 'longitud',
     type: 'decimal',
     nullable: true, // opcional
   })
-  longitud: number | null;
+  longitud: number;
 
   @Column({
     name: 'estado',
@@ -99,5 +99,5 @@ export class Registro {
     length: 500,
     nullable: true, // opcional
   })
-  observacion: string | null;
+  observacion: string;
 }

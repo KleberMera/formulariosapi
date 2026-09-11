@@ -6,6 +6,7 @@ import { DatabaseModule } from './modules/database/database.module.js';
 import { ProvinciaModule } from './modules/provincia/provincia.module.js';
 import { CantonModule } from './modules/canton/canton.module.js';
 import { BarrioModule } from './modules/barrio/barrio.module.js';
+import { RegistroModule } from './modules/registro/registro.module.js';
 
 @Module({
   imports: [
@@ -17,13 +18,14 @@ import { BarrioModule } from './modules/barrio/barrio.module.js';
       password: 'Server2026%lalibertad..',
       database: 'formularios',
       // entities: [],
-      synchronize: true,
+      // synchronize: true,
       autoLoadEntities: true,
     }),
     DatabaseModule,
     ProvinciaModule,
     CantonModule,
     BarrioModule,
+    RegistroModule,
   ],
   controllers: [AppController],
   providers: [AppService],
