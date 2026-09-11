@@ -3,6 +3,9 @@ import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseModule } from './modules/database/database.module.js';
+import { ProvinciaModule } from './modules/provincia/provincia.module.js';
+import { CantonModule } from './modules/canton/canton.module.js';
+import { BarrioModule } from './modules/barrio/barrio.module.js';
 
 @Module({
   imports: [
@@ -18,6 +21,9 @@ import { DatabaseModule } from './modules/database/database.module.js';
       autoLoadEntities: true,
     }),
     DatabaseModule,
+    ProvinciaModule,
+    CantonModule,
+    BarrioModule,
   ],
   controllers: [AppController],
   providers: [AppService],
