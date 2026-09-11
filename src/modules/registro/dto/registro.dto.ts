@@ -11,4 +11,5 @@ export class RegistroDto {
   observacion?: string;
   latitud?: number;
   longitud?: number;
+  codigo?: string;
 }

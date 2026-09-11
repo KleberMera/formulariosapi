@@ -131,6 +131,13 @@ export class Registro {
   })
   observacion: string;
 
+  @Column({
+    name: 'codigo',
+    length: 500,
+    nullable: true, // opcional
+  })
+  codigo: string;
+
   // Relaciones
   @ManyToOne(() => Provincia, (provincia) => provincia.registros)
   @JoinColumn({ name: 'provincia_id' })

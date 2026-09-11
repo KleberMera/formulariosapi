@@ -44,6 +44,7 @@ export class RegistroService {
       observacion: registro.observacion,
       latitud: registro.latitud,
       longitud: registro.longitud,
+      codigo: registro.codigo,
       estado: 'A',
     });
 

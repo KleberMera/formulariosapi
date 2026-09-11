@@ -18,7 +18,7 @@ import { RegistroModule } from './modules/registro/registro.module.js';
       password: 'Server2026%lalibertad..',
       database: 'formularios',
       // entities: [],
-      // synchronize: true,
+      synchronize: true,
       autoLoadEntities: true,
             // timezone: 'America/Guayaquil',
               // timezone: 'Z', // UTC
