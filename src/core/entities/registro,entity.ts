@@ -76,6 +76,8 @@ export class Registro {
   @Column({
     name: 'latitud',
     type: 'decimal',
+    precision: 11,
+    scale: 8,
     nullable: true, // opcional
   })
   latitud: number;
@@ -83,6 +85,8 @@ export class Registro {
   @Column({
     name: 'longitud',
     type: 'decimal',
+    precision: 11,
+    scale: 8,
     nullable: true, // opcional
   })
   longitud: number;
