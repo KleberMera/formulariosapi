@@ -26,9 +26,11 @@ export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
   ): Observable<Response<T>> {
     const request = context.switchToHttp().getRequest();
 
-    if (this.isRegistrationRequest(request.method, request.path)) {
-      request.body = this.uppercaseStrings(request.body);
-    }
+    // if (this.isRegistrationRequest(request.method, request.path)) {
+    //   request.body = this.uppercaseStrings(request.body);
+    // }
+
+    request.body = this.uppercaseStrings(request.body);
 
     const response = context.switchToHttp().getResponse();
     const statusCode = response.statusCode;
