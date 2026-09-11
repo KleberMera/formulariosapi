@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DatabaseModule } from './modules/database/database.module.js';
 
 @Module({
   imports: [
@@ -12,9 +13,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'server',
       password: 'Server2026%lalibertad..',
       database: 'formularios',
-      entities: [],
+      // entities: [],
       synchronize: true,
+      autoLoadEntities: true,
     }),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
