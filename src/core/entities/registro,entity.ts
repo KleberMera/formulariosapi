@@ -1,4 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Provincia } from './provincia.entity.js';
+import { Canton } from './canton.entity.js';
+import { Barrio } from './barrio.entity.js';
+import { Registrador } from './registrador.entity.js';
+import { Evento } from './evento.entity.js';
 
 @Entity('registro')
 export class Registro {
@@ -104,4 +115,25 @@ export class Registro {
     nullable: true, // opcional
   })
   observacion: string;
+
+  // Relaciones
+  @ManyToOne(() => Provincia, (provincia) => provincia.registros)
+  @JoinColumn({ name: 'provincia_id' })
+  provincia: Provincia;
+
+  @ManyToOne(() => Canton, (canton) => canton.registros)
+  @JoinColumn({ name: 'canton_id' })
+  canton: Canton;
+
+  @ManyToOne(() => Barrio, (barrio) => barrio.registros)
+  @JoinColumn({ name: 'barrio_id' })
+  barrio: Barrio;
+
+  @ManyToOne(() => Registrador, (registrador) => registrador.registros)
+  @JoinColumn({ name: 'registrador_id' })
+  registrador: Registrador;
+
+  @ManyToOne(() => Evento, (evento) => evento.registros)
+  @JoinColumn({ name: 'evento_id' })
+  evento: Evento;
 }

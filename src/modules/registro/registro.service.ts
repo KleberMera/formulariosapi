@@ -61,4 +61,30 @@ export class RegistroService {
       where: { estado: 'A' },
     });
   }
+
+
+async listarRegistrosDetallados() {
+  return await this.registroRepository
+    .createQueryBuilder('r')
+    .leftJoinAndSelect('r.provincia', 'provincia')
+    .leftJoinAndSelect('r.canton', 'canton')
+    .leftJoinAndSelect('r.barrio', 'barrio')
+    .leftJoinAndSelect('r.registrador', 'registrador')
+    .select([
+      'r.id AS r_id',
+      'r.cedula AS r_cedula',
+      'r.telefono AS r_telefono',
+      'r.fecha AS r_fecha',
+      'r.estado AS r_estado',
+      'provincia.nombre AS provincia_nombre',
+      'canton.nombre AS canton_nombre',
+      'barrio.nombre AS barrio_nombre',
+    ])
+    .addSelect("CONCAT( r.nombres, ' ', r.apellidos)", 'usuario')
+    .addSelect("CONCAT(registrador.nombres, ' ', registrador.apellidos)", 'registrador_nombre')
+    .where('r.estado = :estado', { estado: 'A' })
+    .orderBy('r.id', 'DESC')
+    .getRawMany();
+}
+
 }

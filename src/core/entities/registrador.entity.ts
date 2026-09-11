@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import type { Registro } from './registro,entity.js';
 
 @Entity('registrador')
 export class Registrador {
@@ -41,4 +42,7 @@ export class Registrador {
     default: 'A', // por defecto 'A'
   })
   estado: string;
+
+  @OneToMany('Registro', (registro: Registro) => registro.registrador)
+  registros: Registro[];
 }

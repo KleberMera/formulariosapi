@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import type { Canton } from './canton.entity.js';
+import type { Registro } from './registro,entity.js';
 
 @Entity('provincia')
 export class Provincia {
@@ -24,4 +25,7 @@ export class Provincia {
 
     @OneToMany('Canton', (canton: Canton) => canton.provincia)
     cantones: Canton[];
+
+    @OneToMany('Registro', (registro: Registro) => registro.provincia)
+    registros: Registro[];
 }

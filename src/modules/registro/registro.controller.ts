@@ -27,4 +27,10 @@ export class RegistroController {
   async getEventosActivos(): Promise<Evento[]> {
     return await this.registroService.getEventosActivos();
   }
+
+  @Get('listar')
+  @ResponseMessage('Lista completa de registros con ubicación y registrador')
+  async listarRegistros() {
+    return await this.registroService.listarRegistrosDetallados();
+  }
 }

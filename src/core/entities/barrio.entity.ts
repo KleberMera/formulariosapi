@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, OneToMany } from 'typeorm';
 import type { Canton } from './canton.entity.js';
+import type { Registro } from './registro,entity.js';
 
 
 @Entity('barrio')
@@ -31,4 +32,7 @@ export class Barrio {
     @ManyToOne('Canton', (canton: Canton) => canton.barrios)
     @JoinColumn({ name: 'canton_id' })
     canton: Canton;
+
+    @OneToMany('Registro', (registro: Registro) => registro.barrio)
+    registros: Registro[];
 }
